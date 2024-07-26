@@ -6,6 +6,7 @@
 //Add input validation for null grades
 //Create individual methods for individual tasks and combine them as necessary
 //Refactor code to separate methods, classes, constructors, etc
+//Have variables declared globally so arrays can be accessed outside of the try section
 
 import java.util.*;
 import java.io.*;
@@ -103,15 +104,17 @@ public class StudentsMarksA2 {
                         tempStudentID = studentID[k];
                         studentID[k] = studentID[k + 1];
                         studentID[k + 1] = tempStudentID;
-
                     }
                 }
             }
+
+            //Print best students
             for (int a = 0; a < 5; a++) {
                 if (a == 0)
-                    System.out.println("Students with highest marks: ");
+                System.out.println("Students with highest marks: ");
                 System.out.println("\t" + (a + 1) + ": " + name[name.length - a - 1]);
             }
+            //Print worst students
             for (int a = 0; a < 5; a++) {
                 if (a == 0)
                     System.out.println("Students with lowest marks: ");
