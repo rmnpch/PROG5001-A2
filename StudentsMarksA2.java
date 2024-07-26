@@ -1,5 +1,4 @@
 //TODO 
-//Store students details in a class/object
 //Create explicit constructor for the parent class, instead of using Java's default constructor
 //Implement getters and setters
 //Add input validation for null grades
@@ -10,6 +9,25 @@
 import java.util.*;
 import java.io.*;
 
+class Student { //Blueprint for creating similar student objects
+    private String name;
+    private int studentId;
+    private float a1;
+    private float a2;
+    private float a3;
+    private float total;
+
+    //Student class constructor
+    Student (String name, int studentId, float a1, float a2, float a3, float total){
+        this.name = name;
+        this.studentId = studentId;
+        this.a1 = a1;
+        this.a2 = a2;
+        this.a3 = a3;
+        this.total = a1+a2+a3;
+    }
+
+}
 public class StudentsMarksA2 {
     // Scanner scanner = new Scanner(System.in);
     // System.out.print("Enter the path name: ");
