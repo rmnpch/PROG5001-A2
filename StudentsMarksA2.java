@@ -11,22 +11,24 @@ import java.util.*;
 import java.io.*;
 
 public class StudentsMarksA2 {
+    // Scanner scanner = new Scanner(System.in);
+    // System.out.print("Enter the path name: ");
+    // String path = scanner.nextLine();
+    // System.out.print("Enter the student threshold: ");
+    // String threshold = scanner.nextLine();
+    // System.out.println(path);
+    // System.out.println(threshold);
+    // scanner.close();
+
+    String path = "D:/OneDrive - Southern Cross University/SCU/Term 3/PROG5001 Fundalmentals of Programming/PROG5001-A2/grades.csv";
+    float threshold = 15;
+
+    int numberOfLines = 0;
+    String line = "";
+    // Integer i = 0;
+
     public StudentsMarksA2() {
-        // Scanner scanner = new Scanner(System.in);
-        // System.out.print("Enter the path name: ");
-        // String path = scanner.nextLine();
-        // System.out.print("Enter the student threshold: ");
-        // String threshold = scanner.nextLine();
-        // System.out.println(path);
-        // System.out.println(threshold);
-        // scanner.close();
-
-        String path = "D:/OneDrive - Southern Cross University/SCU/Term 3/PROG5001 Fundalmentals of Programming/PROG5001-A2/grades.csv";
-        float threshold = 15;
-
-        int numberOfLines = 0;
-        String line = "";
-        Integer i = 0;
+        // read the file
         try {
             BufferedReader lineCounter = new BufferedReader(new FileReader(path));
 
@@ -37,6 +39,8 @@ public class StudentsMarksA2 {
 
             BufferedReader br = new BufferedReader(new FileReader(path));
             int numberOfStudents = numberOfLines - 2;
+            br.readLine(); // Skip header line
+            br.readLine(); // Skip second line
 
             String[] name = new String[numberOfStudents];
             int[] studentID = new int[numberOfStudents];
@@ -47,21 +51,17 @@ public class StudentsMarksA2 {
 
             int j = 0;
 
+            // create parallell arrays
             while ((line = br.readLine()) != null) {
-                i++;
-
-                if (i > 2) {
-                    String[] values = line.split(",");
-                    name[j] = values[1] + " " + values[0];
-                    studentID[j] = Integer.parseInt(values[2]);
-                    a1[j] = Float.parseFloat(values[3]);
-                    a2[j] = Float.parseFloat(values[4]);
-                    a3[j] = Float.parseFloat(values[5]);
-                    total[j] = (a1[j] + a2[j] + a3[j]);
-                    // System.out.println(line+", "+total[j]);
-                    j++;
-                }
-
+                String[] values = line.split(",");
+                name[j] = values[1] + " " + values[0];
+                studentID[j] = Integer.parseInt(values[2]);
+                a1[j] = Float.parseFloat(values[3]);
+                a2[j] = Float.parseFloat(values[4]);
+                a3[j] = Float.parseFloat(values[5]);
+                total[j] = (a1[j] + a2[j] + a3[j]);
+                System.out.println(line + ", " + total[j]);
+                j++;
             }
             br.close();
 
