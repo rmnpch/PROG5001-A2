@@ -1,5 +1,4 @@
 //TODO 
-//Use % notation when printing results
 //Store students details in a class/object
 //Create explicit constructor for the parent class, instead of using Java's default constructor
 //Implement getters and setters
@@ -61,7 +60,7 @@ public class StudentsMarksA2 {
                 a2[j] = Float.parseFloat(values[4]);
                 a3[j] = Float.parseFloat(values[5]);
                 total[j] = (a1[j] + a2[j] + a3[j]);
-                System.out.println(line + ", " + total[j]);
+                // System.out.println(line + ", " + total[j]);
                 j++;
             }
             br.close();
@@ -108,17 +107,17 @@ public class StudentsMarksA2 {
                 }
             }
 
-            //Print best students
+            // Print best students
             for (int a = 0; a < 5; a++) {
                 if (a == 0)
-                System.out.println("Students with highest marks: ");
-                System.out.println("\t" + (a + 1) + ": " + name[name.length - a - 1]);
+                    System.out.println("Students with highest marks: ");
+                System.out.printf("\t %d: %s\n", (a + 1), name[name.length - a - 1]);
             }
-            //Print worst students
+            // Print worst students
             for (int a = 0; a < 5; a++) {
                 if (a == 0)
                     System.out.println("Students with lowest marks: ");
-                System.out.println("\t" + (name.length - a) + ": " + name[a]);
+                System.out.printf("\t %d: %s\n", (name.length - a), name[a]);
             }
 
         } catch (FileNotFoundException e) {
