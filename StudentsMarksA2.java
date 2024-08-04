@@ -1,5 +1,4 @@
 //TODO 
-//Add input validation for null grades
 //Create another file to store Student as a public class
 //Add menu system inteface 
 
@@ -16,6 +15,7 @@ class Student { // Blueprint for creating similar student objects
         this.total = a1 + a2 + a3;
     }
 
+    // getters and setter
     public String getName() {
         return name;
     }
@@ -41,10 +41,6 @@ public class StudentsMarksA2 {
         this.students = new ArrayList<>();
     }
 
-    public void getInput() {
-
-    }
-
     public void readFile() {// Method that handles reading CSV file and construct Student objs
         try {
             String line = "";
@@ -56,15 +52,17 @@ public class StudentsMarksA2 {
             // create students array list and student objects
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                //check for missing values
-                // for (String value: values){
-                //     if (value ==null||value=="")
-                //         value="0";
-                // }
-                Student student = new Student(values[1] + " " + values[0], Integer.parseInt(values[2]),
-                        Float.parseFloat(values[3]), Float.parseFloat(values[4]), Float.parseFloat(values[5]));
-                students.add(student);
+                try {
+                    Student student = new Student(values[1] + " " + values[0], Integer.parseInt(values[2]),
+                            Float.parseFloat(values[3]), Float.parseFloat(values[4]), Float.parseFloat(values[5]));
+                    students.add(student);
+
+                } catch (Exception e) {
+                    System.err.println(
+                            "Make sure " + values[1] + " " + values[0] + " has all grades listed on the .csv file.");
+                }
             }
+
             br.close();
 
         } catch (FileNotFoundException e) {
@@ -123,7 +121,6 @@ public class StudentsMarksA2 {
         StudentsMarksA2 std = new StudentsMarksA2(path, threshold);
         // std is an object from the StudentsMarksA2 class, which can be used to run the
         // program
-        std.getInput();
         std.readFile();
         std.sort();
         std.printStudents();
