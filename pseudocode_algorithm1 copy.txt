@@ -1,0 +1,46 @@
+Create a Student class with name and total attributes
+
+Constructor(name, studentId, a1, a2, a3):
+            Set name
+            Set total as sum of a1, a2, and a3
+
+Define getters for the name, and the total and a setter for the total
+
+Create a second file with a new class called StudentsMarksA2
+
+Class StudentsMarksA2:
+    List students
+    String path
+
+For this classe's constructor, take path as a parameter, and assign this.path=path and this.students=new ArrayList<>()
+
+Method readFile():
+        Try:
+            Open file at path
+            Skip first two lines
+            While there is another line:
+                Try
+                    Create array from line elements split by comma 
+                    Create new Student object with array elements
+                    Add Student objetc to students list
+                Catch 
+                    Print student names that do not have all values for the array
+        Catch FileNotFound:
+            Print error message
+            Rerun readFile
+        Catch IOException:
+            Print error message
+
+Declare another method by declaring public void topAndBottom() {} to handle the algorithm 2's function
+Call sort() method
+        Use bubble sort to sort students ArrayList by total marks
+Print "Students with highest marks:"
+        For first 5 elements:
+            Print name of student at (size of students - i - 1) index using getter method
+        Print "Students with lowest marks:"
+        For i=0 to i=4:
+            Print name of student at students.length-i index using getter method
+Method main():
+        Get file path from user
+        Create StudentsMarksA2 object with path
+        Execute algorithm 2

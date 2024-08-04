@@ -93,9 +93,8 @@ public class StudentsMarksA2 {
         
         scanner.close();
 
+        System.out.printf("Students with grades lower than %.1f: \n", threshold);
         for (int k = 0; k < students.size() - 1; k++) {
-            if (k == 0)
-                System.out.printf("Students with grades lower than %.1f: \n", threshold);
             if (students.get(k).getTotal() < threshold) {
                 System.out.printf("\t %s\n", students.get(k).getName());
             }
@@ -105,15 +104,13 @@ public class StudentsMarksA2 {
     public void topAndBottom() {// Print students with best grades, worst graes and under threshold
         sort();
         // Print best students
+        System.out.println("Students with highest marks: ");
         for (int i = 0; i < 5; i++) {
-            if (i == 0)
-                System.out.println("Students with highest marks: ");
             System.out.printf("\t %d: %s\n", (i + 1), students.get(students.size() - i - 1).getName());
         }
         // Print worst students
+        System.out.println("Students with lowest marks: ");
         for (int i = 0; i < 5; i++) {
-            if (i == 0)
-                System.out.println("Students with lowest marks: ");
             System.out.printf("\t %d: %s\n", (students.size() - i), students.get(i).getName());
         }
     }

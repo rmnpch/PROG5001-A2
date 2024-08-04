@@ -1,0 +1,48 @@
+Create a Student class with name and total attributes
+
+Constructor(name, studentId, a1, a2, a3):
+            Set name
+            Set total as sum of a1, a2, and a3
+
+Define getters for the name, and the total and a setter for the total
+
+Create a second file with a new class called StudentsMarksA2
+
+Class StudentsMarksA2:
+    List students
+    String path
+
+For this classe's constructor, take path as a parameter, and assign this.path=path and this.students=new ArrayList<>()
+
+Method readFile():
+        Try:
+            Open file at path
+            Skip first two lines
+            While there is another line:
+                Try
+                    Create array from line elements split by comma 
+                    Create new Student object with array elements
+                    Add Student objetc to students list
+                Catch 
+                    Print student names that do not have all values for the array
+        Catch FileNotFound:
+            Print error message
+            Rerun readFile
+        Catch IOException:
+            Print error message
+
+Declare another method by declaring public void belowThreshold() {} to handle the algorithm 1 function
+Method belowThreshold():
+        Get threshold from user input with Scanner class
+        If threshold is not between 0 and 100:
+            Print error message
+            Rerun belowThreshold method 
+        scanner.close()
+        Print header and threshold value
+        For each student in students:
+            If student's total is less than threshold:
+                Print student's name 
+Method main():
+        Get file path from user
+        Create StudentsMarksA2 object with path
+        Execute algorithm 1
