@@ -31,7 +31,7 @@ Method readFile():
         Catch IOException:
             Print error message
 
-Declare another method by declaring public void belowThreshold() {} to handle the algorithm 1 function
+Declare another method by declaring public void belowThreshold() {} to handle the algorithm 3 function
 Method belowThreshold():
         Get threshold from user input with Scanner class
         If threshold is not between 0 and 100:
@@ -45,4 +45,4 @@ Method belowThreshold():
 Method main():
         Get file path from user
         Create StudentsMarksA2 object with path
-        Execute algorithm 1
+        Execute algorithm 3
